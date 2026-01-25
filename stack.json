@@ -1,0 +1,52 @@
+{
+  "stack": [
+    {
+      "id": 1,
+      "language": "Python",
+      "description": "Strong proficiency in Python with a solid understanding of core programming principles. Extensive experience using mainstream libraries such as Pandas, NumPy, and Matplotlib for data analysis, visualisation, and machine learning projects.",
+      "svg-link": "https://cdn.simpleicons.org/python/808080"
+    },
+    {
+      "id": 2,
+      "language": "Delphi",
+      "description": "Early foundational language that developed strong problem-solving skills and structured programming habits. Experience with Pascal-based development contributed to a solid understanding of UI-driven applications and software fundamentals.",
+      "svg-link": "https://cdn.simpleicons.org/delphi/808080"
+    },
+    {
+      "id": 3,
+      "language": "HTML",
+      "description": "Confident with HTML fundamentals and semantic markup. Experienced in structuring clean, accessible website layouts and building responsive page skeletons for web applications.",
+      "svg-link": "https://cdn.simpleicons.org/html5/808080"
+    },
+    {
+      "id": 4,
+      "language": "SQL",
+      "description": "Comfortable working with relational databases, including designing queries and managing data using SQL. Experience with SQLite and MS Access in academic and project-based environments.",
+      "svg-link": "https://cdn.simpleicons.org/sqlite/808080"
+    },
+    {
+      "id": 5,
+      "language": "Flask",
+      "description": "Primary backend framework for web development projects. Experienced in building lightweight web applications, integrating Jinja templating, and connecting backend logic with frontend components.",
+      "svg-link": "https://cdn.simpleicons.org/flask/808080"
+    },
+    {
+      "id": 6,
+      "language": "Git/Github",
+      "description": "Strong understanding of version control using Git and GitHub, including branching, commits, and collaborative workflows. Familiar with best practices for maintaining clean and trackable codebases.",
+      "svg-link": "https://cdn.simpleicons.org/git/808080"
+    },
+    {
+      "id": 7,
+      "language": "CSS",
+      "description": "Working knowledge of CSS for styling and layout. Able to implement basic designs, adjust layouts, and support frontend presentation requirements alongside HTML.",
+      "svg-link": "https://cdn.simpleicons.org/css/808080"
+    },
+    {
+      "id": 8,
+      "language": "R Studio",
+      "description": "Experience using R Studio for data visualisation and statistical analysis as part of academic coursework. Familiar with data manipulation and exploratory data analysis workflows.",
+      "svg-link": "https://cdn.simpleicons.org/r/808080"
+    }
+  ]
+}

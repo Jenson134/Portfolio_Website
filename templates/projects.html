@@ -1,0 +1,31 @@
+{% include 'header.html' %}
+<section class="py-5 text-center container"> 
+    <div class="row py-lg-5"> 
+        <div class="col-lg-6 col-md-8 mx-auto"> 
+            <h1 class="fw-light">My Projects</h1> 
+            <p class="lead text-body-secondary">Here is a showcase of some of the projects uploaded to my github with provided links.</p> 
+        </div> 
+    </div> 
+</section>
+<div class="album py-5 bg-body-tertiary"> 
+    <div class="container"> 
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> 
+        {% for i in range(num)[::-1]:%}
+            <div class="col"> 
+                <div class="card shadow-sm"> 
+                    <img src="{{ projects[i]['thumbnail'] }}" 
+                    alt="{{ projects[i]['name'] }}" 
+                    class="bd-placeholder-img card-img-top" 
+                    height="225" width="100%">
+                    <div class="card-body">
+                        <h3><strong>{{ projects[i]["name"] }}</strong></h3>
+                        <p class="card-text">{{ projects[i]["description"] }}</p> 
+                        <div class="d-flex justify-content-between align-items-center"> 
+                            <a href="{{ projects[i]['gitlink'] }}" class="btn btn-sm btn-outline-secondary">View</a>                        
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        {% endfor %}
+
+{% include 'footer.html'%}

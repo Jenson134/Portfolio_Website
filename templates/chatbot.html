@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+<div class="chatbot--page" style="background-color:rgba(200,200,200,0.235)">
+    <div class="chatbot--heading">
+        <h1 class="bold"> What would you like to know? </h1>
+        <p class="lighter-bold">
+            Ask anything you would like to know about Jenson and I will help where i can.<br>
+            If my answers aren't exactly what you're lookikng for,
+            feel free to contact Jenson directly through the home page!
+        </p>
+    </div>
+    <div class="chat-container">
+        <div id="chat-window"></div>
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+{% include 'footer.html' %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>

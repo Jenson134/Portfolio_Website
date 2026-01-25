@@ -1,0 +1,42 @@
+{% include 'header.html' %}
+<head>
+    <title>Jenson Allaway</title>
+</head>
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-greeting">Hello, I'm</span>
+                    <h1 class="hero-title">Jenson Allaway</h1>
+                    <h2 class="hero-subtitle">Software Developer</h2>
+                    <p class="hero-description">I am an aspiring software developer with a passion for all things computer science. I pride myself in my work and I am eager to make a real impact through innovative solutions and clean code.</p>
+                    <div class="hero-cta">
+                        <a href="{{ url_for('email')}}" class="btn-primary-hero">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="card-accent"></div>
+                        <div class="floating-element element-1"></div>
+                        <div class="floating-element element-2"></div>
+                        <div class="floating-element element-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container px-4 py-5" id="icon-grid">
+        <h2 class="pb-2 border-bottom">My Stack</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+            {% for i in range(stack_size): %}
+            <div class="col d-flex align-items-start">
+                <img class='stack-img' src="{{stack[i]['svg-link']}}" alt="Python Logo">
+                <div> 
+                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">{{ stack[i]["language"] }}</h3> 
+                    <p>{{ stack[i]["description"] }}</p> 
+                </div> 
+            </div> 
+            {% endfor %}
+        </div> 
+    </div>
+{% include 'footer.html' %}

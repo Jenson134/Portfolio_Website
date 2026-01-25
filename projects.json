@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Morse Code Translator",
+      "description": "A csv file with the corresponding morse/ english letters utilizing a translator class.",
+      "gitlink": "https://github.com/Jenson134/morse-code-translator",
+      "thumbnail": "./static/assets/morse_project.png"
+    },
+    {
+      "id": 2,
+      "name": "Speech To Text",
+      "description": "Web application that allows you to record, edit and save voice memos.",
+      "gitlink": "https://github.com/Jenson134/Speech_to_text",
+      "thumbnail": "./static/assets/speech_to_text.png"
+    },
+    {
+      "id": 3,
+      "name": "Tic Tac Toe",
+      "description": "Looped CLI game with number mapped spaces, scoreboard and regenerative board.",
+      "gitlink": "https://github.com/Jenson134/tic-tac-toe",
+      "thumbnail": "./static/assets/tic_tac_toe.png"
+    },
+    {
+      "id": 4,
+      "name": "Watermark Generator",
+      "description": "Application with UI to apply customizable watermarks to a chosen image. Customizable settings like position and opacity",
+      "gitlink": "https://github.com/Jenson134/watermark-generator",
+      "thumbnail": "./static/assets/watermark_gen.png"
+    },
+    {
+      "id": 5,
+      "name": "Injury Prediction",
+      "description": "Utilizes Logistic Regression and data-handling to predict injuries for the following season of football.",
+      "gitlink": "https://github.com/Jenson134/injury-prediction",
+      "thumbnail": "./static/assets/injury_pred_project.png"
+    },
+    {
+      "id": 6,
+      "name": "Recycling CNN",
+      "description": "Uses ResNet50 with transfer learning and data augmentation to identify the type of recycling in a given image.",
+      "gitlink": "https://github.com/Jenson134/recycling-CNN",
+      "thumbnail": "./static/assets/recycling_CNN.png"
+    }
+  ]
+}
