@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
-from email.message import EmailMessage
-import smtplib
+import requests
 import json
 import os
 
@@ -61,27 +60,51 @@ def extract_stack():
 
 
 def handle_contact_form(email, subject, message):
-    sender_email = os.getenv("SMTP_EMAIL")
-    sender_password = os.getenv("SMTP_PASSWORD")
+    api_key = os.getenv("SENDGRID_API_KEY")
+    to_email = os.getenv("CONTACT_TO_EMAIL")
+    from_email = os.getenv("SENDGRID_FROM_EMAIL")
 
-    if not sender_email or not sender_password:
-        raise RuntimeError("SMTP credentials not configured")
+    if not api_key or not to_email or not from_email:
+        raise RuntimeError("SendGrid environment variables not configured")
 
-    msg = EmailMessage()
-    msg["From"] = sender_email
-    msg["To"] = "jensonallaway03@gmail.com"
-    msg["Subject"] = f"Contact Form: {subject}"
-    msg["Reply-To"] = email
+    payload = {
+        "personalizations": [
+            {
+                "to": [{"email": to_email}],
+                "subject": f"Contact Form: {subject}"
+            }
+        ],
+        "from": {
+            "email": from_email
+        },
+        "reply_to": {
+            "email": email
+        },
+        "content": [
+            {
+                "type": "text/plain",
+                "value": (
+                    f"Sender Email: {email}\n\n"
+                    f"Message:\n{message}"
+                )
+            }
+        ]
+    }
 
-    msg.set_content(
-        f"Sender Email: {email}\n\n"
-        f"Message:\n{message}"
+    response = requests.post(
+        "https://api.sendgrid.com/v3/mail/send",
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        },
+        json=payload,
+        timeout=10
     )
 
-    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
-        connection.starttls()
-        connection.login(sender_email, sender_password)
-        connection.send_message(msg)
+    if response.status_code >= 400:
+        raise RuntimeError(
+            f"SendGrid error {response.status_code}: {response.text}"
+        )
 
 def is_about_me(question: str) -> bool:
     keywords = ["you", "jenson", "your", "yourself", "projects", "background"]
@@ -157,12 +180,16 @@ def email():
         if email != confirm_email:
             error = "Email addresses do not match."
         else:
-            handle_contact_form(
-                email=email,
-                subject=subject,
-                message=message
-            )
-            success = "Email has been sent!"
+            try:
+                handle_contact_form(
+                    email=email,
+                    subject=subject,
+                    message=message
+                )
+                success = "Email has been sent!"
+            except Exception:
+                error = "Unable to send email at this time. Please try again later."
+
         
     return render_template(
         'email.html',
