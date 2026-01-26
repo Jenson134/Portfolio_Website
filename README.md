@@ -28,7 +28,7 @@ The application follows a conventional Flask project structure:
 - Server-rendered portfolio pages using Flask and Jinja2
 - Dynamic project and technology stack rendering from JSON
 - OpenAI-powered chatbot restricted to a predefined personal context
-- Secure contact form with SMTP email delivery
+- Secure contact form sending emails via SendGrid API
 - Environment-variable-based configuration for all secrets
 - Production-ready deployment using Gunicorn
 
@@ -45,11 +45,10 @@ This design prioritizes predictability, safety, and reliability.
 
 ## Email Handling
 
-The contact form sends emails using SMTP with the following characteristics:
+The contact form sends emails using SendGrid with the following characteristics:
 
 - Credentials are injected via environment variables
-- TLS encryption is used for SMTP communication
-- Sender input is validated server-side
+- Emails include sender information and the message content
 - No credentials or secrets are stored in the repository
 
 ## Configuration and Environment Variables
@@ -61,11 +60,14 @@ Required variables in production:
 - `OPENAI_API_KEY`  
   API key used for chatbot responses
 
-- `SMTP_EMAIL`  
-  Sender email address for the contact form
+- `SENDGRID_API_KEY`  
+  API key for sending emails via SendGrid
 
-- `SMTP_PASSWORD`  
-  SMTP app password associated with the sender email
+- `SENDGRID_FROM_EMAIL` 
+  Sender email used in outgoing emails
+
+- `CONTACT_TO_EMAIL`
+  Recipient email address for contact form submissions
 
 The application will fail fast at startup if required variables are missing.
 
