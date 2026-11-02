@@ -1,31 +1,32 @@
+{% set page_title = 'Projects | Jenson Allaway' -%}
+{% set page_description = 'A showcase of software projects by Jenson Allaway, with links to the code on GitHub.' -%}
 {% include 'header.html' %}
-<section class="py-5 text-center container"> 
-    <div class="row py-lg-5"> 
-        <div class="col-lg-6 col-md-8 mx-auto"> 
-            <h1 class="fw-light">My Projects</h1> 
-            <p class="lead text-body-secondary">Here is a showcase of some of the projects uploaded to my github with provided links.</p> 
-        </div> 
-    </div> 
-</section>
-<div class="album py-5 bg-body-tertiary"> 
-    <div class="container"> 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> 
-        {% for i in range(num)[::-1]:%}
-            <div class="col"> 
-                <div class="card shadow-sm"> 
-                    <img src="{{ projects[i]['thumbnail'] }}" 
-                    alt="{{ projects[i]['name'] }}" 
-                    class="bd-placeholder-img card-img-top" 
-                    height="225" width="100%">
-                    <div class="card-body">
-                        <h3><strong>{{ projects[i]["name"] }}</strong></h3>
-                        <p class="card-text">{{ projects[i]["description"] }}</p> 
-                        <div class="d-flex justify-content-between align-items-center"> 
-                            <a href="{{ projects[i]['gitlink'] }}" class="btn btn-sm btn-outline-secondary">View</a>                        
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        {% endfor %}
+<header class="page-head">
+    <div class="container">
+        <h1 class="page-head__title">My Projects</h1>
+        <p class="page-head__lead">Here is a showcase of some of the projects uploaded to my github with provided links.</p>
+    </div>
+</header>
 
-{% include 'footer.html'%}
+<section class="section">
+    <div class="container">
+        <ul class="project-grid">
+            {% for project in projects|reverse %}
+            <li>
+                <article class="project-card">
+                    <div class="project-card__media">
+                        <img src="{{ project['thumbnail'] }}" alt="{{ project['name'] }}" loading="lazy" decoding="async">
+                    </div>
+                    <div class="project-card__body">
+                        <span class="project-card__index" aria-hidden="true">{{ "%02d"|format(loop.index) }}</span>
+                        <h2 class="project-card__title">{{ project["name"] }}</h2>
+                        <p class="project-card__text">{{ project["description"] }}</p>
+                        <a href="{{ project['gitlink'] }}" class="project-card__link">View<span class="visually-hidden"> {{ project["name"] }} on GitHub</span></a>
+                    </div>
+                </article>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% include 'footer.html' %}

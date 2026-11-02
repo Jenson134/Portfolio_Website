@@ -41,6 +41,27 @@
       "description": "Uses ResNet50 with transfer learning and data augmentation to identify the type of recycling in a given image.",
       "gitlink": "https://github.com/Jenson134/recycling-CNN",
       "thumbnail": "./static/assets/recycling_CNN.png"
+    },
+    {
+      "id": 7,
+      "name": "Loan Eligibility Model",
+      "description": "Compares Logistic Regression, SVM, Random Forest and XGBoost with SMOTE and tuning to predict whether a loan application will be approved.",
+      "gitlink": "https://github.com/Jenson134/Loan-Eligibility-Model",
+      "thumbnail": "./static/assets/Loan_Eligibility_model.png"
+    },
+    {
+      "id": 8,
+      "name": "RAG Pipeline",
+      "description": "Scrapes given Wikipedia pages and to a database where it is chunked and further processed to give accurate answers to relevant questions on the content.",
+      "gitlink": "https://github.com/Jenson134/RAG-Pipeline",
+      "thumbnail": "./static/assets/RAG_pipeline.png"
+    },
+    {
+      "id": 9,
+      "name": "Siamese CNN",
+      "description": "Uses a Siamese CNN and handcrafted stroke features to tell whether two handwriting samples come from the same writer.",
+      "gitlink": "https://github.com/Jenson134/Handwritten-Forgery-Detection",
+      "thumbnail": "./static/assets/Siamese_CNN.png"
     }
   ]
 }

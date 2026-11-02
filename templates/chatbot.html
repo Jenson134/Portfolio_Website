@@ -1,20 +1,22 @@
+{% set page_title = 'Assistant | Jenson Allaway' -%}
+{% set page_description = 'Ask the assistant questions about Jenson Allaway.' -%}
 {% include 'header.html' %}
-<div class="chatbot--page" style="background-color:rgba(200,200,200,0.235)">
-    <div class="chatbot--heading">
-        <h1 class="bold"> What would you like to know? </h1>
-        <p class="lighter-bold">
-            Ask anything you would like to know about Jenson and I will help where i can.<br>
-            If my answers aren't exactly what you're lookikng for,
-            feel free to contact Jenson directly through the home page!
-        </p>
+<section class="section section--split">
+    <div class="container split">
+        <div class="split__head">
+            <h1 class="page-head__title page-head__title--compact">What would you like to know?</h1>
+            <p class="page-head__lead">Ask anything you would like to know about Jenson and I will help where I can. If my answers aren't exactly what you're looking for, feel free to contact Jenson directly through the home page!</p>
+        </div>
+        <div class="chat-container">
+            <div class="chat-header">AI Assistant</div>
+            <div id="chat-window" role="log" aria-label="Conversation"></div>
+            <form id="chat-form">
+                <label class="visually-hidden" for="user-input">Message</label>
+                <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" maxlength="500" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
-    <div class="chat-container">
-        <div id="chat-window"></div>
-        <form id="chat-form">
-            <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" required>
-            <button type="submit">Send</button>
-        </form>
-    </div>
-</div>
+</section>
+<script src="{{ url_for('static', filename='js/chat.js') }}" defer></script>
 {% include 'footer.html' %}
-<script src="{{ url_for('static', filename='js/chat.js') }}"></script>

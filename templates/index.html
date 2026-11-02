@@ -1,42 +1,36 @@
+{% set page_title = 'Jenson Allaway | Software Developer' -%}
+{% set page_description = 'Portfolio of Jenson Allaway, a software developer. Projects, education and a way to get in touch.' -%}
 {% include 'header.html' %}
-<head>
-    <title>Jenson Allaway</title>
-</head>
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-greeting">Hello, I'm</span>
-                    <h1 class="hero-title">Jenson Allaway</h1>
-                    <h2 class="hero-subtitle">Software Developer</h2>
-                    <p class="hero-description">I am an aspiring software developer with a passion for all things computer science. I pride myself in my work and I am eager to make a real impact through innovative solutions and clean code.</p>
-                    <div class="hero-cta">
-                        <a href="{{ url_for('email')}}" class="btn-primary-hero">Get In Touch</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-card">
-                        <div class="card-accent"></div>
-                        <div class="floating-element element-1"></div>
-                        <div class="floating-element element-2"></div>
-                        <div class="floating-element element-3"></div>
-                    </div>
-                </div>
+<section class="hero">
+    <div class="container">
+        <p class="hero__eyebrow">Hello, I'm</p>
+        <h1 class="hero__title">Jenson Allaway</h1>
+        <div class="hero__body">
+            <h2 class="hero__role">Software Developer</h2>
+            <div class="hero__copy">
+                <p>I am an aspiring software developer with a passion for all things computer science. I pride myself in my work and I am eager to make a real impact through innovative solutions and clean code.</p>
+                <a href="{{ url_for('email') }}" class="button button--primary button--arrow">Get In Touch</a>
             </div>
         </div>
-    </section>
-    <div class="container px-4 py-5" id="icon-grid">
-        <h2 class="pb-2 border-bottom">My Stack</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-            {% for i in range(stack_size): %}
-            <div class="col d-flex align-items-start">
-                <img class='stack-img' src="{{stack[i]['svg-link']}}" alt="Python Logo">
-                <div> 
-                    <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">{{ stack[i]["language"] }}</h3> 
-                    <p>{{ stack[i]["description"] }}</p> 
-                </div> 
-            </div> 
-            {% endfor %}
-        </div> 
     </div>
+</section>
+
+<section class="section" id="stack" aria-labelledby="stack-title">
+    <div class="container">
+        <div class="stack">
+            <h2 class="section-title" id="stack-title">My Stack</h2>
+            <ul class="stack__list">
+                {% for item in stack %}
+                <li class="stack__item">
+                    <span class="stack__badge"><img class="stack__icon" src="{{ item['svg-link'] }}" alt="" width="24" height="24" loading="lazy" decoding="async"></span>
+                    <div>
+                        <h3 class="stack__name">{{ item["language"] }}</h3>
+                        <p class="stack__desc">{{ item["description"] }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
 {% include 'footer.html' %}
